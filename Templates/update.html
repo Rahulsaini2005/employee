@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Form</title>
+    <style>
+        /* Reset default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #f3e5f5, #e1bee7);
+        }
+
+        .form-container {
+            background: #fff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            max-width: 480px;
+            width: 100%;
+            border-left: 6px solid #7b1fa2;
+            transition: all 0.3s ease;
+        }
+
+        .form-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        h2 {
+            margin-bottom: 30px;
+            color: #7b1fa2;
+            font-size: 28px;
+            font-weight: bold;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            margin-bottom: 8px;
+            color: #333;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: bold;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 15px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            border-color: #7b1fa2;
+            box-shadow: 0 0 5px rgba(123, 31, 162, 0.3);
+        }
+
+        button {
+            padding: 14px;
+            background: #7b1fa2;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        button:hover {
+            background: #6a1b9a;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(123, 31, 162, 0.2);
+        }
+
+        button:active {
+            background: #4a148c;
+            transform: translateY(0);
+        }
+
+        .btn-cancel {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px;
+            background: #ef5350;
+            color: #fff;
+            border-radius: 8px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .btn-cancel:hover {
+            background: #d32f2f;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(239, 83, 80, 0.2);
+        }
+
+        .btn-cancel:active {
+            background: #b71c1c;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Employee Form</h2>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ form.as_p }}
+            </div>
+            <button type="submit">Update</button>
+        </form>
+        <a href="{% url 'create-employ-list' %}" class="btn-cancel">Cancel</a>
+    </div>
+</body>
+</html>
